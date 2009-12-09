@@ -20,4 +20,8 @@ need test data!
 > mvn test
 Success!
 
+[5] Add Web/Spring DB Migration
 
+[6] Change a field name
+
+[7] Add a field
