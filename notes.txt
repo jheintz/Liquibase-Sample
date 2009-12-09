@@ -12,3 +12,12 @@ wipe out the database (tutorial_spring)
 ... failure
 drop tables
 
+> mvn test
+... failures
+need test data!
+
+[4] Add test data to db.changelog.xml
+> mvn test
+Success!
+
+
