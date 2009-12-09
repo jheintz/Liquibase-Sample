@@ -158,4 +158,9 @@ INSERT INTO person (id, first_name, last_name) VALUE (1, 'Matt', 'Raible');
 INSERT INTO person (id, first_name, last_name) VALUE (2, 'Bob', 'Johnson');
         </sql>
     </changeSet>
+    <changeSet id="3" author="JDH" context="schema">
+    	<comment>Rename person columns to use camel case</comment>
+    	<renameColumn tableName="person" oldColumnName="first_name" newColumnName="firstName" columnDataType="VARCHAR(50)"/>
+    	<renameColumn tableName="person" oldColumnName="last_name" newColumnName="lastName" columnDataType="VARCHAR(50)"/>
+    </changeSet>
 </databaseChangeLog>
