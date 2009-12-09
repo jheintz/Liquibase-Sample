@@ -16,6 +16,12 @@
     </li>
 
     <li>
+        <appfuse:label styleClass="desc" key="person.middleName"/>
+        <form:errors path="middleName" cssClass="fieldError"/>
+        <form:input path="middleName" id="middleName" cssClass="text medium"/>
+    </li>
+
+    <li>
         <appfuse:label styleClass="desc" key="person.lastName"/>
         <form:errors path="lastName" cssClass="fieldError"/>
         <form:input path="lastName" id="lastName" cssClass="text medium"/>

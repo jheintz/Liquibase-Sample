@@ -14,6 +14,7 @@ public class Person extends BaseObject {
 	private static final long serialVersionUID = 4497150553356125515L;
 	private Long id;
     private String firstName;
+    private String middleName;
     private String lastName;
 
     @Id
@@ -33,6 +34,15 @@ public class Person extends BaseObject {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    @Column(name="middleName", length=50)
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
     @Column(name="lastName", length=50)

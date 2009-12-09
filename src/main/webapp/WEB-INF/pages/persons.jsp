@@ -23,6 +23,7 @@
     <display:column property="id" escapeXml="true" sortable="true"
         url="/personform.html" paramId="id" paramProperty="id" titleKey="person.id"/>
     <display:column property="firstName" escapeXml="true" sortable="true" titleKey="person.firstName"/>
+    <display:column property="middleName" escapeXml="true" sortable="true" titleKey="person.middleName"/>
     <display:column property="lastName" escapeXml="true" sortable="true" titleKey="person.lastName"/>
 
     <display:setProperty name="paging.banner.item_name" value="person"/>

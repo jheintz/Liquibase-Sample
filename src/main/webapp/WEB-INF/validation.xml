@@ -93,6 +93,11 @@
 
                   <arg0 key="user.firstName"/>
               </field>
+              <field property="middleName"
+                     depends="required">
+
+                  <arg0 key="user.middleName"/>
+              </field>
               <field property="lastName"
                      depends="required">
 
@@ -152,6 +157,9 @@
         <form name="person">
             <field property="firstName" depends="required">
                 <arg0 key="person.firstName"/>
+            </field>
+            <field property="middleName" depends="required">
+                <arg0 key="person.middleName"/>
             </field>
             <field property="lastName" depends="required">
                 <arg0 key="person.lastName"/>
