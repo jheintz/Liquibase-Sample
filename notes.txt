@@ -7,5 +7,8 @@ wipe out the database (tutorial_spring)
 > ./generateChangeLog.sh
 > less target/generatedChangeLog.xml
 
-
+[3] Put db.changelog.xml in place
+> mvn test
+... failure
+drop tables
 
