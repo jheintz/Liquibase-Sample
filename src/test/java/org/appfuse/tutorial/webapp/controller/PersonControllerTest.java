@@ -13,7 +13,8 @@ public class PersonControllerTest extends BaseControllerTestCase {
 		this.c = c;
 	}
 
-    public void testHandleRequest() throws Exception {
+    @SuppressWarnings("unchecked")
+	public void testHandleRequest() throws Exception {
         ModelAndView mav = c.handleRequest(null, null);
         ModelMap m = mav.getModelMap();
         assertNotNull(m.get("personList"));
