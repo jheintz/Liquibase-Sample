@@ -44,7 +44,30 @@
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
-            <plugin>
+	        <plugin>
+	          <groupId>org.liquibase</groupId>
+	          <artifactId>liquibase-plugin</artifactId>
+	          <version>1.9.5.0</version>
+	          <executions>
+	            <execution>
+	              <phase>process-resources</phase>
+	              <configuration>
+	                <contexts>main,test</contexts>
+					<changeLogFile>src/main/resources/db.changelog.xml</changeLogFile>
+        		    <driver>${jdbc.driverClassName}</driver>
+        		    <url>${jdbc.url}</url>
+        		    <username>${jdbc.username}</username>
+        		    <password>${jdbc.password}</password>
+        		    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+        		    <!--<propertiesFile>src/main/resources/liquibase.properties</propertiesFile>-->
+	              </configuration>
+	              <goals>
+	                <goal>update</goal>
+	              </goals>
+	            </execution>
+	          </executions>
+	        </plugin>
+	        <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appfuse-maven-plugin</artifactId>
                 <version>${appfuse.version}</version>
@@ -149,14 +172,14 @@
                         <skip>${maven.test.skip}</skip>
                     </componentProperties>
                 </configuration>
-                <executions>
+                <!-- <executions>
                     <execution>
                         <phase>process-test-resources</phase>
                         <goals>
                             <goal>hbm2ddl</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions> -->
                 <dependencies>
                     <dependency>
                         <groupId>${jdbc.groupId}</groupId>
@@ -178,7 +201,7 @@
                     <src>src/test/resources/sample-data.xml</src>
                     <type>${dbunit.operation.type}</type>
                     <schema>${dbunit.schema}</schema>
-                    <skip>${maven.test.skip}</skip>
+                    <skip>true</skip>
                 </configuration>
                 <executions>
                     <execution>
@@ -355,6 +378,11 @@
     </pluginRepositories>
 
     <dependencies>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+            <version>1.9.5</version>
+        </dependency>
         <dependency>
             <groupId>org.appfuse</groupId>
             <artifactId>appfuse-${web.framework}</artifactId>

@@ -1,0 +1,11 @@
+wipe out the database (tutorial_spring)
+
+[1] First run the standard app to create the db
+> mvn jetty:run-war
+
+[2] Then add Liquibase and generate a changelog
+> ./generateChangeLog.sh
+> less target/generatedChangeLog.xml
+
+
+
