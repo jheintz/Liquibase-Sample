@@ -84,4 +84,78 @@
         <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_role" constraintName="FK_USER_ROLE" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="role"/>
         <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_role" constraintName="FK_ROLE_USER" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="app_user"/>
     </changeSet>
+    <changeSet id="2" author="JDH" context="test">
+    	<comment>Add user data.</comment>
+    	
+        <insert tableName="app_user">
+            <column name="id" valueNumeric="-1"/>
+            <column name="username" value="user"/>
+            <column name="password" value="12dea96fec20593566ab75692c9949596833adc9"/>
+            <column name="first_name" value="Tomcat"/>
+            <column name="last_name" value="User"/>
+            <column name="address" value=""/>
+            <column name="city" value="Denver"/>
+            <column name="country" value="US"/>
+            <column name="email" value="matt_raible@yahoo.com"/>
+            <column name="phone_number" value=""/>
+            <column name="postal_code" value="80210"/>
+            <column name="province" value="CO"/>
+            <column name="website" value="http://tomcat.apache.org"/>
+            <column name="password_hint" value="A male kitty."/>
+            <column name="version" valueNumeric="1"/>
+            <column name="account_enabled" valueNumeric="1"/>
+            <column name="account_expired" valueNumeric="0"/>
+            <column name="account_locked" valueNumeric="0"/>
+            <column name="credentials_expired" valueNumeric="0"/>
+        </insert>
+    	
+        <insert tableName="app_user">
+            <column name="id" valueNumeric="-2"/>
+            <column name="username" value="admin"/>
+            <column name="password" value="d033e22ae348aeb5660fc2140aec35850c4da997"/>
+            <column name="first_name" value="Matt"/>
+            <column name="last_name" value="Raible"/>
+            <column name="address" value=""/>
+            <column name="city" value="Denver"/>
+            <column name="country" value="US"/>
+            <column name="email" value="matt@raibledesigns.com"/>
+            <column name="phone_number" value=""/>
+            <column name="postal_code" value="80210"/>
+            <column name="province" value="CO"/>
+            <column name="website" value="http://raibledesigns.com"/>
+            <column name="password_hint" value="Not a female kitty."/>
+            <column name="version" valueNumeric="1"/>
+            <column name="account_enabled" valueNumeric="1"/>
+            <column name="account_expired" valueNumeric="0"/>
+            <column name="account_locked" valueNumeric="0"/>
+            <column name="credentials_expired" valueNumeric="0"/>
+        </insert>
+        
+        <insert tableName="role">
+            <column name="id" valueNumeric="-1"/>
+            <column name="name" value="ROLE_ADMIN"/>
+            <column name="description" value="Administrator role (can edit Users)"/>
+        </insert>
+        
+        <insert tableName="role">
+            <column name="id" valueNumeric="-2"/>
+            <column name="name" value="ROLE_USER"/>
+            <column name="description" value="Default role for all Users"/>
+        </insert>
+        
+        <insert tableName="user_role">
+            <column name="user_id" valueNumeric="-1"/>
+            <column name="role_id" valueNumeric="-2"/>
+        </insert>
+        
+        <insert tableName="user_role">
+            <column name="user_id" valueNumeric="-2"/>
+            <column name="role_id" valueNumeric="-1"/>
+        </insert>
+        
+        <sql>
+INSERT INTO person (id, first_name, last_name) VALUE (1, 'Matt', 'Raible');
+INSERT INTO person (id, first_name, last_name) VALUE (2, 'Bob', 'Johnson');
+        </sql>
+    </changeSet>
 </databaseChangeLog>
