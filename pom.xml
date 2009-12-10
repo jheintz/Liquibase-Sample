@@ -52,7 +52,7 @@
 	            <execution>
 	              <phase>process-resources</phase>
 	              <configuration>
-	                <contexts>main,test</contexts>
+	                <contexts>schema,test</contexts>
 					<changeLogFile>src/main/resources/db.changelog.xml</changeLogFile>
         		    <driver>${jdbc.driverClassName}</driver>
         		    <url>${jdbc.url}</url>
